@@ -1,12 +1,41 @@
 {
   "name": "@anakin-io/piece-anakin",
   "version": "0.1.0",
-  "description": "Anakin piece for Activepieces — web scraping, AI search, and agentic research",
+  "description": "Activepieces piece for Anakin: web scraping, AI search, deep research, site crawling, Wire site actions, website monitoring, AI visibility and AI browser tasks",
+  "keywords": [
+    "activepieces",
+    "activepieces-piece",
+    "anakin",
+    "web scraping",
+    "crawl",
+    "ai search",
+    "automation"
+  ],
+  "homepage": "https://anakin.io",
+  "bugs": {
+    "url": "https://github.com/Anakin-Inc/activepieces-anakin/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anakin-Inc/activepieces-anakin.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Anakin",
+    "email": "support@anakin.io",
+    "url": "https://anakin.io"
+  },
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
+  "files": [
+    "dist/src"
+  ],
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "check:type": "tsc --noEmit"
+    "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "check:type": "tsc --noEmit",
+    "check:load": "node -e \"const p = require('./dist/src/index.js').anakin; const n = Object.keys(p.actions()).length; if (!n) throw new Error('no actions'); console.log('Anakin piece loads with ' + n + ' actions')\"",
+    "prepublishOnly": "npm run build && npm run check:load"
   },
   "dependencies": {
     "@activepieces/pieces-common": "^0.12.5",
@@ -15,5 +44,8 @@
   },
   "devDependencies": {
     "typescript": "^5.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
