@@ -35,7 +35,7 @@ export const anakin = createPiece({
   description:
     'Web scraping, AI search, agentic research, site mapping/crawling, Wire site automation, website monitoring, AI visibility tracking, and AI browser automation — turn any website into clean markdown, structured JSON, or an automatable action.',
   minimumSupportedRelease: '0.30.0',
-  logoUrl: 'https://anakin.io/logo-square.png',
+  logoUrl: 'https://anakin.io/favicon.png',
   categories: [PieceCategory.ARTIFICIAL_INTELLIGENCE],
   authors: ['anakin-io'],
   auth: anakinAuth,
